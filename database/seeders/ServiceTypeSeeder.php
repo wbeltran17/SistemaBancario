@@ -15,43 +15,43 @@ class ServiceTypeSeeder extends Seeder
     public function run()
     {
         ServiceType::create([
-            'mt_id' => 1,
-            'mt_name' => 'Agua',
+            'st_id' => 1,
+            'st_name' => 'Agua',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         ServiceType::create([
-            'mt_id' => 2,
-            'mt_name' => 'Luz',
+            'st_id' => 2,
+            'st_name' => 'Luz',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         ServiceType::create([
-            'mt_id' => 3,
-            'mt_name' => 'Gas',
+            'st_id' => 3,
+            'st_name' => 'Gas',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         ServiceType::create([
-            'mt_id' => 4,
-            'mt_name' => 'Internet',
+            'st_id' => 4,
+            'st_name' => 'Internet',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         ServiceType::create([
-            'mt_id' => 5,
-            'mt_name' => 'Tarjeta',
+            'st_id' => 5,
+            'st_name' => 'Tarjeta',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         ServiceType::create([
-            'mt_id' => 6,
-            'mt_name' => 'Otros',
+            'st_id' => 6,
+            'st_name' => 'Otros',
             'created_at' => now(),
             'updated_at' => now()
         ]);

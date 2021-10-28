@@ -57,17 +57,24 @@
                                                     <td class="col-sm-2">{{ $user->document }}</td>
                                                     <td class="col-sm-2">{{ $user->address }}</td>
                                                     <td class="col-sm-2">{{ $user->email }}</td>
-                                                    <td class="col-sm-2">{{ $user->phone }}</td>
-                                                    <td class="col-sm-1">
+                                                    <td class="col-sm-1">{{ $user->phone }}</td>
+                                                    <td class="col-sm-2">
                                                         <div class="row">
+
+                                                            <a href="{{ route('users.show', $user->id) }}"
+                                                                class="btn btn-sm btn-primary m-1">
+                                                                <span>
+                                                                    <i class="fas fa-info"></i>
+                                                                </span>
+                                                            </a>
                                                             <a href="{{ route('users.edit', $user->id) }}"
-                                                                class="btn btn-sm btn-secondary">
+                                                                class="btn btn-sm btn-secondary m-1">
                                                                 <span>
                                                                     <i class="fas fa-edit"></i>
                                                                 </span>
                                                             </a>
                                                             {!! Form::model($user, ['route' => ['users.destroy', $user->id], 'method' => 'DELETE']) !!}
-                                                            {{ Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-sm btn-danger']) }}
+                                                            {{ Form::button('<i class="fas fa-trash-alt m-1"></i>', ['type' => 'submit', 'class' => 'btn btn-sm btn-danger']) }}
                                                             {!! Form::close() !!}
                                                         </div>
                                                     </td>

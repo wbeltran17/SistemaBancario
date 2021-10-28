@@ -29,7 +29,7 @@
                                                 <th class="col-sm-1">
                                                     id
                                                 </th>
-                                                <th class="col-sm-2">
+                                                <th class="col-sm-3">
                                                     Numero
                                                 </th>
                                                 <th class="col-sm-2">
@@ -41,7 +41,7 @@
                                                 <th class="col-sm-2">
                                                     Saldo
                                                 </th>
-                                                <th class="col-sm-1">
+                                                <th class="col-sm-2">
                                                     Acciones
                                                 </th>
                                             </tr>
@@ -49,17 +49,26 @@
                                         <tbody class="text-center">
                                             @foreach ($cardList as $card)
                                                 <tr class="row col-sm-12 ">
-                                                    <td class="col-sm-1">{{ $card->id }}</td>
-                                                    <td class="col-sm-2">{{ $card->number }}</td>
-                                                    <td class="col-sm-1">
+                                                    <td class="col-sm-1">{{ $card->card_id }}</td>
+                                                    <td class="col-sm-3">{{ $card->card_number }}</td>
+                                                    <td class="col-sm-2">{{ $card->card_type }}</td>
+                                                    <td class="col-sm-2">{{ $card->card_reference }}</td>
+                                                    <td class="col-sm-2">{{ $card->card_balance }}</td>
+                                                    <td class="col-sm-2">
                                                         <div class="row">
-                                                            <a href="{{ route('cards.edit', $user->id) }}"
+                                                            <a href="{{ route('cards.show', $card->card_id) }}"
+                                                                class="btn btn-sm btn-primary">
+                                                                <span>
+                                                                    <i class="fas fa-info"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a href="{{ route('cards.edit', $card->card_id) }}"
                                                                 class="btn btn-sm btn-secondary">
                                                                 <span>
                                                                     <i class="fas fa-edit"></i>
                                                                 </span>
                                                             </a>
-                                                            {!! Form::model($user, ['route' => ['cards.destroy', $user->id], 'method' => 'DELETE']) !!}
+                                                            {!! Form::model($card, ['route' => ['cards.destroy', $card->card_id], 'method' => 'DELETE']) !!}
                                                             {{ Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-sm btn-danger']) }}
                                                             {!! Form::close() !!}
                                                         </div>

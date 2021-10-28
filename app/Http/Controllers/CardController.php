@@ -20,10 +20,21 @@ class CardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $op = $request->get('op');
 
-        $cardList = Card::all();
+        //echo $op;
+        if ($op != null) {
+            if ($op == 'active')
+                $cardList = Card::where('card_status', '=', 1)->get();
+            if ($op == 'unactive')
+                $cardList = Card::where('card_status', '=', 0)->get();
+            if ($op == 'balance')
+                $cardList = Card::where('card_credit', '>', 0)->get();
+        } else {
+            $cardList = Card::all();
+        }
         return view('card.list', compact('cardList'));
     }
 

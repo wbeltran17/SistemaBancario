@@ -15,11 +15,12 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id('card_id');
-            $table->integer('card_number');
-            $table->integer('card_type');
-            $table->integer('card_reference');
+            $table->string('card_number');
+            $table->string('card_type');
+            $table->string('card_reference');
             $table->float('card_balance');
             $table->float('card_credit');
+            $table->boolean('card_status');
             $table->integer('user_id');
             $table->timestamps();
         });

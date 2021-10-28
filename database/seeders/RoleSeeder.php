@@ -26,6 +26,7 @@ class RoleSeeder extends Seeder
         $counterPermission = Permission::create(['name' => 'user.list'])->syncRoles([$adminRole, $opManagerRole]);
         $counterPermission = Permission::create(['name' => 'user.delete'])->syncRoles([$adminRole, $opManagerRole]);
         $counterPermission = Permission::create(['name' => 'user.update'])->syncRoles([$adminRole, $opManagerRole, $personalRole, $corporateRole, $studentRole]);
+        $counterPermission = Permission::create(['name' => 'report.generate'])->syncRoles([$adminRole, $opManagerRole]);
         $counterPermission = Permission::create(['name' => 'product.create'])->syncRoles([$adminRole, $opManagerRole]);
         $counterPermission = Permission::create(['name' => 'product.list'])->syncRoles([$adminRole, $opManagerRole, $personalRole, $corporateRole, $studentRole]);
         $counterPermission = Permission::create(['name' => 'product.delete'])->syncRoles([$adminRole, $opManagerRole, $personalRole, $corporateRole, $studentRole]);

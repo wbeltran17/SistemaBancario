@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Card;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -77,7 +78,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $cardList = Card::where('user_id', '=', $id)->get();
+        return view('user.view', compact('user', 'cardList'));
     }
 
     /**
