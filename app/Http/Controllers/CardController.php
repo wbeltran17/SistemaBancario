@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Card;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CardController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('can:product.create')->only('index', 'show');
-        $this->middleware('can:product.list')->only('create', 'store');
+        $this->middleware('can:product.list')->only('index', 'show');
+        $this->middleware('can:product.create')->only('create', 'store');
         $this->middleware('can:product.delete')->only('destroy');
         $this->middleware('can:product.update')->only('edit', 'update');
     }
@@ -23,8 +24,7 @@ class CardController extends Controller
     public function index(Request $request)
     {
         $op = $request->get('op');
-
-        //echo $op;
+        $role = Auth::user()->id;
         if ($op != null) {
             if ($op == 'active')
                 $cardList = Card::where('card_status', '=', 1)->get();
@@ -32,6 +32,8 @@ class CardController extends Controller
                 $cardList = Card::where('card_status', '=', 0)->get();
             if ($op == 'balance')
                 $cardList = Card::where('card_credit', '>', 0)->get();
+            if ($op == 'user')
+                $cardList = Card::where('user_id', '=', $role)->get();
         } else {
             $cardList = Card::all();
         }
@@ -65,9 +67,9 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function show(Card $card)
+    public function show($id)
     {
-        //
+        $card = Card::findOrFail($id);
     }
 
     /**

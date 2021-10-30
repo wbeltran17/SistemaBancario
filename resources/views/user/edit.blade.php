@@ -46,7 +46,7 @@
                         <label>{{ __('Perfil de Usuario') }}</label>
                         <select class="form-control" name="rol" id="rol">
                             <option value="admin">Administrador</option>
-                            <option value="op_manager">Dorector de Operaciones</option>
+                            <option value="op_manager">Director de Operaciones</option>
                             <option value="personal">Personal</option>
                             <option value="corporate">Corporativo</option>
                             <option value="student">Estudiante</option>

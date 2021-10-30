@@ -29,7 +29,7 @@
                                                 <th class="col-sm-1">
                                                     id
                                                 </th>
-                                                <th class="col-sm-3">
+                                                <th class="col-sm-2">
                                                     Numero
                                                 </th>
                                                 <th class="col-sm-2">
@@ -38,7 +38,10 @@
                                                 <th class="col-sm-2">
                                                     Tipo
                                                 </th>
-                                                <th class="col-sm-2">
+                                                <th class="col-sm-1">
+                                                    Cupo
+                                                </th>
+                                                <th class="col-sm-1">
                                                     Saldo
                                                 </th>
                                                 <th class="col-sm-2">
@@ -50,10 +53,11 @@
                                             @foreach ($cardList as $card)
                                                 <tr class="row col-sm-12 ">
                                                     <td class="col-sm-1">{{ $card->card_id }}</td>
-                                                    <td class="col-sm-3">{{ $card->card_number }}</td>
+                                                    <td class="col-sm-2">{{ $card->card_number }}</td>
                                                     <td class="col-sm-2">{{ $card->card_type }}</td>
                                                     <td class="col-sm-2">{{ $card->card_reference }}</td>
-                                                    <td class="col-sm-2">{{ $card->card_balance }}</td>
+                                                    <td class="col-sm-1">{{ $card->card_balance }}</td>
+                                                    <td class="col-sm-1">{{ $card->card_credit }}</td>
                                                     <td class="col-sm-2">
                                                         <div class="row">
                                                             <a href="{{ route('cards.show', $card->card_id) }}"
