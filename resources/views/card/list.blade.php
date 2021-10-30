@@ -59,7 +59,7 @@
                                                     <td class="col-sm-1">{{ $card->card_balance }}</td>
                                                     <td class="col-sm-1">{{ $card->card_credit }}</td>
                                                     <td class="col-sm-2">
-                                                        <div class="row">
+                                                        <div class="row text-center">
                                                             <a href="{{ route('cards.show', $card->card_id) }}"
                                                                 class="btn btn-sm btn-primary">
                                                                 <span>

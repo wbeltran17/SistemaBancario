@@ -61,7 +61,9 @@
                     <div class="card  text-center">
                         <div class="card-header">Consultar Cupos</div>
                         <div class="card-body">
-                            <a class="btn btn-lg btn-danger m-2" href="{{ route('cards.index', 'op=user') }}">Consultar</a>
+                            <a class="btn btn-lg btn-danger m-2" href="{{ route('cards.index', 'op=user') }}">Compras</a>
+
+                            <a class="btn btn-lg btn-danger m-2" href="{{ route('cards.index', 'op=user') }}">Avances</a>
                             <p class="card-text"></p>
                         </div>
                     </div>
@@ -86,6 +88,20 @@
                             <a class="btn btn-lg btn-danger m-2"
                                 href="{{ route('users.edit', Auth::user()->id) }}">Cancelar</a>
                             <p class="card-text"></p>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Generar extracto</h5>
+                            <form method="POST" action="{{ route('users.index') }}">
+                                <label for="day_counter">Seleccione los días de mora</label>
+                                <select class="form-control" name="day_counter" id="day_counter">
+                                    <Option value="30"> 30 días</Option>
+                                    <Option value="60"> 60 días</Option>
+                                    <Option value="90"> 90 días</Option>
+                                </select>
+                            </form>
+                            <button class="btn btn-lg btn-danger m-1">GENERAR</button>
                         </div>
                     </div>
                     <div class="card  text-center">
